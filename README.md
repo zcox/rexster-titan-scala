@@ -98,3 +98,8 @@ channel=2]
 2013-05-14 16:54:54,004 DEBUG com.pongr.Main$ - Zach likes 2 things: [Scala,NOS]
 [success] Total time: 4 s, completed May 14, 2013 4:54:54 PM
 ```
+
+# TODO
+
+ - Run Titan Server and this app on two separate EC2 instances
+ 

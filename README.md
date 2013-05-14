@@ -55,6 +55,6 @@ rexster[groovy]> g.stopTransaction(SUCCESS)
 
 TODO
 
-# Instructions
+# Running the App
 
 TODO

@@ -9,7 +9,7 @@ Shows some examples of using [Titan](http://thinkaurelius.github.io/titan/) over
 
 # Titan Server
 
-We'll run a Titan+Cassandra server. Version 0.3.1 is the latest as of this writing.
+We'll run a Titan+Cassandra+RexPro server. Version 0.3.1 is the latest as of this writing.
 
 ```
 wget http://s3.thinkaurelius.com/downloads/titan/titan-cassandra-0.3.1.zip

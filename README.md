@@ -53,8 +53,47 @@ rexster[groovy]> g.stopTransaction(SUCCESS)
 
 # RexPro
 
-TODO
+All you really need is the rexster-protocol dependency in build.sbt:
+
+```scala
+"com.tinkerpop.rexster" % "rexster-protocol" % "2.3.0"
+```
+
+Next just use RexsterClientFactory to get a RexsterClient:
+
+```scala
+import com.tinkerpop.rexster.client.RexsterClientFactory
+val client = RexsterClientFactory.open("localhost", "graph")
+```
+
+Then send Gremlin queries over the RexsterClient:
+
+```scala
+val results = client.execute("g.V.name")
+```
 
 # Running the App
 
-TODO
+With the Titan Server running locally, just clone this repo and do `sbt run` and you should see output like this:
+
+```
+$ sbt run
+[info] Set current project to rexster-titan-scala (in build file:/home/zcox/dev/rexster-titan-scala/)
+[info] Running com.pongr.Main 
+2013-05-14 16:54:53,293 INFO  c.t.r.client.RexsterClientFactory - Create RexsterClient instance: [hostname=localhost
+graph-name=graph
+port=8184
+timeout-connection-ms=8000
+timeout-write-ms=4000
+timeout-read-ms=16000
+max-async-write-queue-size=512000
+message-retry-count=16
+message-retry-wait-ms=50
+language=groovy
+graph-obj-name=g
+transaction=true
+channel=2]
+2013-05-14 16:54:53,925 DEBUG com.pongr.Main$ - 3 names: [Zach,Scala,NOS]
+2013-05-14 16:54:54,004 DEBUG com.pongr.Main$ - Zach likes 2 things: [Scala,NOS]
+[success] Total time: 4 s, completed May 14, 2013 4:54:54 PM
+```

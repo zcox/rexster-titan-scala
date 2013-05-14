@@ -3,7 +3,8 @@ Shows some examples of using [Titan](http://thinkaurelius.github.io/titan/) over
 # Overview
 
  - Run a [Titan Server](https://github.com/thinkaurelius/titan/wiki/Titan-Server)
- - Talk to Titan remotely using the [RexPro Java client](https://github.com/tinkerpop/rexster/wiki/RexPro-Java)
+ - Use [Rexster Console]() to set up a simple graph
+ - Run [Gremlin]() queries on Titan remotely using the [RexPro Java client](https://github.com/tinkerpop/rexster/wiki/RexPro-Java)
  - Tweak things slightly for Scala
 
 # Titan Server
@@ -19,7 +20,7 @@ bin/titan.sh config/titan-server-rexster.xml config/titan-server-cassandra.prope
 
 # Rexster Console
 
-We'll use Rexster Console to set up some nodes and edges in Titan.
+We'll use [Rexster Console]() to set up some nodes and edges in Titan.
 
 ```
 wget http://tinkerpop.com/downloads/rexster/rexster-console-2.3.0.zip

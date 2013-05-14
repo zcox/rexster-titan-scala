@@ -8,13 +8,50 @@ Shows some examples of using [Titan](http://thinkaurelius.github.io/titan/) over
 
 # Titan Server
 
-TODO
+We'll run a Titan+Cassandra server. Version 0.3.1 is the latest as of this writing.
 
-# RexPro
-
-TODO
+```
+wget http://s3.thinkaurelius.com/downloads/titan/titan-cassandra-0.3.1.zip
+unzip titan-cassandra-0.3.1.zip
+cd titan-cassandra-0.3.1
+bin/titan.sh config/titan-server-rexster.xml config/titan-server-cassandra.properties
+```
 
 # Rexster Console
+
+We'll use Rexster Console to set up some nodes and edges in Titan.
+
+```
+wget http://tinkerpop.com/downloads/rexster/rexster-console-2.3.0.zip
+unzip rexster-console-2.3.0.zip
+cd rexster-console-2.3.0
+bin/rexster-console.sh
+
+        (l_(l
+(_______( 0 0
+(        (-Y-) <woof>
+l l-----l l
+l l,,   l l,,
+opening session [127.0.0.1:8184]
+?h for help
+
+rexster[groovy]> g = rexster.getGraph("graph")
+==>titangraph[embeddedcassandra:null]
+rexster[groovy]> v1 = g.addVertex([name:"Zach"])
+==>v[4]
+rexster[groovy]> v2 = g.addVertex([name:"Scala"])
+==>v[8]
+rexster[groovy]> e1 = g.addEdge(v1, v2, "likes", [since: 2009])
+==>e[n-4-2F0LaTPQAS][4-likes->8]
+rexster[groovy]> v3 = g.addVertex([name:"NOS"])
+==>v[12]
+rexster[groovy]> e2 = g.addEdge(v1,v3,"likes",[since:2012])
+==>e[z-4-2F0LaTPQAS][4-likes->12]
+rexster[groovy]> g.stopTransaction(SUCCESS)
+==>null
+```
+
+# RexPro
 
 TODO
 

@@ -144,4 +144,10 @@ It will take a long time for sbt to set itself up and download all dependencies,
 
 # TODO
 
- - What about local development? Local file or in-memory Titan?
+  - What about local development? Local file or in-memory Titan?
+    - TitanFactory.open() with storage.backend=inmemory should return an in-memory TitanGraph, which is a Blueprints Graph
+    - DefaultRexsterApplication takes a Blueprints Graph
+    - RexProRexsterServer.start() takes a RexsterApplication
+    - Then RexsterClient should be able to connect to that RexPro server...
+    - For now, just assume you have to run Titan Server locally during development
+  - Can you set up all of the indexes, keys etc via Rexster?

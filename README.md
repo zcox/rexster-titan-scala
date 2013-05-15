@@ -15,6 +15,7 @@ We'll run a Titan+Cassandra+RexPro server. Version 0.3.1 is the latest as of thi
 wget http://s3.thinkaurelius.com/downloads/titan/titan-cassandra-0.3.1.zip
 unzip titan-cassandra-0.3.1.zip
 cd titan-cassandra-0.3.1
+chmod +x bin/titan.sh
 bin/titan.sh config/titan-server-rexster.xml config/titan-server-cassandra.properties
 ```
 
@@ -99,7 +100,48 @@ channel=2]
 [success] Total time: 4 s, completed May 14, 2013 4:54:54 PM
 ```
 
+# EC2
+
+This demonstrates running the Titan Server and the Rexster app on two different servers, communicating over the network.
+
+Initial setup:
+
+```
+ec2run ami-856f02ec -n 2 -t m1.medium -k yourkey -g your-ssh-group -g your-titan-group
+open port 8184 for your-titan-group
+```
+
+On Titan Server instance:
+
+```
+sudo apt-get update
+sudo apt-get install -y unzip htop ntp default-jre
+
+#Download and run Titan Server as above
+```
+
+On Rexster app instance:
+
+```
+sudo apt-get update
+sudo apt-get install -y unzip htop ntp default-jdk git
+
+#Download and unzip Rexter Console as above
+bin/rexster-console.sh -rh [internal-hostname of titan-server]
+
+cd ~
+wget http://scalasbt.artifactoryonline.com/scalasbt/sbt-native-packages/org/scala-sbt/sbt//0.12.3/sbt.tgz
+tar xvzf sbt.tgz
+
+cd ~
+git clone git://github.com/zcox/rexster-titan-scala.git
+cd rexster-titan-scala
+#Replace localhost in src/main/scala/main.scala with internal-hostname of titan-server
+~/sbt/bin/sbt run
+```
+
+It will take a long time for sbt to set itself up and download all dependencies, but you should then see the same output as running the app locally.
+
 # TODO
 
- - Run Titan Server and this app on two separate EC2 instances
- 
+ - ???

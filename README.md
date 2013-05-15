@@ -144,4 +144,4 @@ It will take a long time for sbt to set itself up and download all dependencies,
 
 # TODO
 
- - ???
+ - What about local development? Local file or in-memory Titan?

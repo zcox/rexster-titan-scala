@@ -15,7 +15,6 @@ We'll run a Titan+Cassandra+RexPro server. Version 0.3.1 is the latest as of thi
 wget http://s3.thinkaurelius.com/downloads/titan/titan-cassandra-0.3.1.zip
 unzip titan-cassandra-0.3.1.zip
 cd titan-cassandra-0.3.1
-chmod +x bin/titan.sh
 bin/titan.sh config/titan-server-rexster.xml config/titan-server-cassandra.properties
 ```
 
@@ -51,6 +50,15 @@ rexster[groovy]> e2 = g.addEdge(v1,v3,"likes",[since:2012])
 ==>e[z-4-2F0LaTPQAS][4-likes->12]
 rexster[groovy]> g.stopTransaction(SUCCESS)
 ==>null
+rexster[groovy]> g.V.name
+==>Zach
+==>Scala
+==>NOS
+rexster[groovy]> g.V('name','Zach').out('likes').name
+==>Scala
+==>NOS
+rexster[groovy]> ?q
+closing session with Rexster [ip-10-152-185-66.ec2.internal:8184]--> done
 ```
 
 # RexPro
@@ -118,6 +126,7 @@ sudo apt-get update
 sudo apt-get install -y unzip htop ntp default-jre
 
 #Download and run Titan Server as above
+#Use private IP address in <server-host> in titan-server-rexster.xml
 ```
 
 On Rexster app instance:

@@ -102,6 +102,12 @@ val graph = new RexsterGraph("http://localhost:8182/graphs/graph")
 val names = graph.getVertices.map(v => Option(v.getProperty("name"))).flatten
 ```
 
+Note that RexsterGraph also has an execute method, similar to RexsterClient, that takes a Gremlin query String and returns a JSONArray of results:
+
+```scala
+graph.execute("g.V.name")
+```
+
 # Running the App
 
 With the Titan Server running locally, just clone this repo and do `sbt run` and you should see output like this:

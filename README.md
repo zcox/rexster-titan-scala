@@ -63,6 +63,8 @@ closing session with Rexster [ip-10-152-185-66.ec2.internal:8184]--> done
 
 # RexPro
 
+You can use the [RexPro Java API](https://github.com/tinkerpop/rexster/wiki/RexPro-Java) to send Gremlin queries to a remote Rexster server and process the results.
+
 All you really need is the rexster-protocol dependency in build.sbt:
 
 ```scala
@@ -80,6 +82,24 @@ Then send Gremlin queries over the RexsterClient:
 
 ```scala
 val results = client.execute("g.V.name")
+```
+
+# RexsterGraph
+
+You can also use [RexsterGraph](https://github.com/tinkerpop/blueprints/wiki/Rexster-Implementation) to communicate with any remote Rexster server. This is an implementation of the [Blueprints](http://blueprints.tinkerpop.com) Graph interface.
+
+Just include the blueprints-rexster-graph dependency in build.sbt:
+
+```scala
+"com.tinkerpop.blueprints" % "blueprints-rexster-graph" % "2.3.0"
+```
+
+Next create a RexsterGraph and call methods on it, just like you would any Graph:
+
+```scala
+import com.tinkerpop.blueprints.impls.rexster.RexsterGraph
+val graph = new RexsterGraph("http://localhost:8182/graphs/graph")
+val names = graph.getVertices.map(v => Option(v.getProperty("name"))).flatten
 ```
 
 # Running the App

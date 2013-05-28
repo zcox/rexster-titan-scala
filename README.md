@@ -5,6 +5,7 @@ Shows some examples of using [Titan](http://thinkaurelius.github.io/titan/) over
  - Run a [Titan Server](https://github.com/thinkaurelius/titan/wiki/Titan-Server)
  - Use [Rexster Console](https://github.com/tinkerpop/rexster/wiki/Rexster-Console) to set up a simple graph
  - Run [Gremlin](http://gremlin.tinkerpop.com) queries on Titan remotely using the [RexPro Java client](https://github.com/tinkerpop/rexster/wiki/RexPro-Java)
+ - Use [RexsterGraph](https://github.com/tinkerpop/blueprints/wiki/Rexster-Implementation) to treat a remote Rexster server as a Blueprints Graph
  - Tweak things slightly for Scala
 
 # Titan Server
